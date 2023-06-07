@@ -7,10 +7,10 @@ public class Book {
     private String publisher;
 
     public Book(String title, int pageCount, String author, String publisher) {
-        setTitle(title);
-        setPageCount(pageCount);
-        setAuthor(author);
-        setPublisher(publisher);
+        this.title = title;
+        this.pageCount = pageCount;
+        this.author = author;
+        this.publisher = publisher;
     }
 
     public String getTitle() {
@@ -18,9 +18,6 @@ public class Book {
     }
 
     public void setTitle(String title) {
-        if (title == null || title.isEmpty()) {
-            throw new IllegalArgumentException("Il titolo non può essere vuoto");
-        }
         this.title = title;
     }
 
@@ -28,11 +25,8 @@ public class Book {
         return pageCount;
     }
 
-    public void setPageCount(int pageCount) {
-        if (pageCount <= 0) {
-            throw new IllegalArgumentException("Il numero di pagine non deve essere zero");
-        }
-        this.pageCount = pageCount;
+    public void setPageCount(int numPages) {
+        this.pageCount = numPages;
     }
 
     public String getAuthor() {
@@ -40,9 +34,6 @@ public class Book {
     }
 
     public void setAuthor(String author) {
-        if (author == null || author.isEmpty()) {
-            throw new IllegalArgumentException("Autore non può essere vuoto");
-        }
         this.author = author;
     }
 
@@ -51,9 +42,15 @@ public class Book {
     }
 
     public void setPublisher(String publisher) {
-        if (publisher == null || publisher.isEmpty()) {
-            throw new IllegalArgumentException("Editore non può essere vuoto");
-        }
         this.publisher = publisher;
     }
+
+    @Override
+    public String toString() {
+        return "Titolo: " + title +
+                ", Numero pagine: " + pageCount +
+                ", Autore: " + author +
+                ", Editore: " + publisher;
+    }
+
 }
